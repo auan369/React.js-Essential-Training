@@ -17,18 +17,40 @@
     <div id="root"></div>
 
     <script type="text/babel">
-      let robot = "🤖";
-      let cowboy = "🤠";
-      let moon = "🌝";
-      let name = "React";
+      function Header(props){
+        return(
+          <header>
+            <h1>{props.name}'s Kitchen</h1>
+          </header>
+        );
+      }
+      function Main(props){
+        return(
+          <section>
+            <p>Nice {props.adjective} food only</p>
+          </section>
+        );
+      }
+      function Footer(props){
+        return(
+          <footer>
+            <p>Copyright {props.year}</p>
+            </footer>
+        );
+
+      }
+      function App(){
+        return(
+          <div>
+            <Header name="Tommy"/>
+            <Main adjective="edible"/>
+            <Footer year = {new Date().getFullYear()} />
+          </div>
+        );
+      }
       ReactDOM.render(
-        <ul>
-          <li>{robot}</li>
-          <li>{cowboy}</li>
-          <li>{moon}</li>
-          <li>{name.toUpperCase()}</li>
-          <li>{name.length}</li>
-        </ul>,
+        //<Header />,
+        <App />,
         document.getElementById("root")
       );
     </script>
